@@ -1,6 +1,21 @@
 public class RedBlackTree {
     private Node root;
 
+    public boolean add(int value){
+        if (root != null){
+            Boolean result = addNode(root, value);
+            root = rebalance(root);
+            root.color = Color.BLACK;
+            return result;
+        }
+        else {
+            root = new Node();
+            root.color = Color.BLACK;
+            root.value = value;
+            return true;
+        }
+    }
+
     private class Node {
         private int value;
         private Color color;
@@ -68,8 +83,9 @@ public class RedBlackTree {
                 needRebalance = true;
                 colorSwap(result);
             }
-
         }
+        while (needRebalance);
+        return result;
     }
 
     private Node rightSwap(Node node){

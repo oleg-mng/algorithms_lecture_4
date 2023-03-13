@@ -4,15 +4,15 @@ import java.util.List;
 public class Tree {
     Node root;
 
-    public Boolean exist(int value) {
-        if (root != null) {
-            Node node = find(root, value);
-            if (node != null) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public Boolean exist(int value) {
+//        if (root != null) {
+//            Node node = find(root, value);
+//            if (node != null) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
 //    private Node find(Node node, int value) {
 //        if (node.value == value) {
