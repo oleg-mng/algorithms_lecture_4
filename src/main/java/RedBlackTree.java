@@ -1,6 +1,7 @@
 import java.awt.*;
 
 public class RedBlackTree {
+    private Node root;
 
     private class Node {
         private int value;
@@ -15,5 +16,23 @@ public class RedBlackTree {
     }
     private enum Color{
         RED, BLACK
+    }
+    private boolean addNode (Node node, int value){
+        if (node.value == value){
+            return false;
+        }
+        else {
+            if (node.value > value){
+                if (node.leftChild != null){
+                    boolean result = addNode(node.leftChild, value);
+                    node.leftChild = rebalance(node.leftChild);
+                    return result;
+                }
+                else{
+                    node.leftChild = new Node();
+
+                }
+            }
+        }
     }
 }
