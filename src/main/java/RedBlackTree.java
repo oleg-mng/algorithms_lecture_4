@@ -48,14 +48,14 @@ public class RedBlackTree {
                 }
             }
             else {
-                if (node.leftChild != null) {
-                    boolean result = addNode(node.leftChild, value);
-                    node.leftChild = rebalance(node.leftChild);
+                if (node.rightChild != null) {
+                    boolean result = addNode(node.rightChild, value);
+                    node.rightChild = rebalance(node.rightChild);
                     return result;
                 } else {
-                    node.leftChild = new Node();
-                    node.leftChild.color = Color.RED;
-                    node.leftChild.value = value;
+                    node.rightChild = new Node();
+                    node.rightChild.color = Color.RED;
+                    node.rightChild.value = value;
                     return true;
                 }
 
@@ -100,8 +100,8 @@ public class RedBlackTree {
 
     private Node leftSwap(Node node){
         Node leftChild = node.leftChild;
-        Node betweenChild = leftChild.leftChild;
-        leftChild.leftChild = node;
+        Node betweenChild = leftChild.rightChild;
+        leftChild.rightChild = node;
         node.leftChild = betweenChild;
         leftChild.color = node.color;
         node.color = Color.RED;
@@ -109,7 +109,7 @@ public class RedBlackTree {
     }
 
     private void colorSwap(Node node){
-        node.leftChild.color = Color.BLACK;
+        node.rightChild.color = Color.BLACK;
         node.leftChild.color = Color.BLACK;
         node.color = Color.RED;
     }

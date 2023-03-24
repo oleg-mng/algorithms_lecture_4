@@ -16,8 +16,7 @@ public class Program {
                 } catch (Exception ignored) {
                 }
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
